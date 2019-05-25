@@ -1,1 +1,5 @@
 debian/icons/dwm.png
+drw.o
+dwm
+dwm.o
+util.o

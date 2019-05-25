@@ -2,9 +2,9 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"-*-lucidabright-medium-r-*-*-*-100-*-*-*-*-*-*"
+	"monospace:size=10"
 };
-static const char dmenufont[]       = "-*-lucidabright-medium-r-*-*-*-100-*-*-*-*-*-*";
+static const char dmenufont[]       = "monospace:size=10";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
@@ -12,7 +12,6 @@ static const char selbordercolor[]  = "#005577";
 static const char selbgcolor[]      = "#005577";
 static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -25,16 +24,9 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class          instance    title       tags mask     isfloating   monitor */
-	{ "xfce4-terminal", NULL,       NULL,       0,            0,       -1 },
-	{ "Iceweasel",      NULL,       NULL,       1 << 1,       0,       -1 },
-        { "Firefox-bin",    NULL,       NULL,       1 << 1,       0,       -1 },
-        { "Pidgin",         NULL,       NULL,       1 << 2,       1,        1 },
-        { "Skype",          NULL,       NULL,       1 << 2,       1,        1 },
-        { "Vlc",            NULL,       NULL,       1 << 5,       0,       -1 },
-        { "Emacs",          NULL,       NULL,       1 << 3,       0,       -1 },
-        { "Evince",         NULL,       NULL,       1 << 4,       0,       -1 },
-        { "Gimp",           NULL,       NULL,       1 << 6,       1,       -1 },
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Iceweasel",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -50,7 +42,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -90,8 +82,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_a,      setgaps,        {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_s,      setgaps,        {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -120,4 +110,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-

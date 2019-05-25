@@ -10,6 +10,7 @@ static const char selbordercolor[]  = "#0066ff";
 static const char selbgcolor[]      = "#0066ff";
 static const char selfgcolor[]      = "#000000";
 static unsigned int borderpx        = 0;
+static unsigned int gappx           = 5;
 static unsigned int snap            = 32;
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
