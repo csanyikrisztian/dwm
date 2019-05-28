@@ -2,7 +2,7 @@ Package: dwm
 Version: 6.1-4
 Architecture: amd64
 Maintainer: Hugo Lefeuvre <hle@debian.org>
-Installed-Size: 241
+Installed-Size: 93
 Depends: libc6 (>= 2.4), libfontconfig1 (>= 2.12), libx11-6, libxft2 (>> 2.1.1), libxinerama1
 Recommends: suckless-tools, x11-xserver-utils, stterm | x-terminal-emulator
 Provides: x-window-manager

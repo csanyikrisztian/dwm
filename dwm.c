@@ -43,6 +43,7 @@
 
 #include "drw.h"
 #include "util.h"
+#include "parser.h"
 
 /* macros */
 #define BUTTONMASK              (ButtonPressMask|ButtonReleaseMask)
@@ -1599,7 +1600,8 @@ setup(void)
 	scheme[SchemeNorm].fg = drw_clr_create(drw, normfgcolor);
 	scheme[SchemeSel].border = drw_clr_create(drw, selbordercolor);
 	scheme[SchemeSel].bg = drw_clr_create(drw, selbgcolor);
-	scheme[SchemeSel].fg = drw_clr_create(drw, selfgcolor);
+	// scheme[SchemeSel].fg = drw_clr_create(drw, selfgcolor);
+	scheme[SchemeSel].fg = drw_clr_create(drw, configuration.selfgcolor );
 	/* init bars */
 	updatebars();
 	updatestatus();
@@ -2146,6 +2148,7 @@ main(int argc, char *argv[])
 	if (!(dpy = XOpenDisplay(NULL)))
 		die("dwm: cannot open display\n");
 	checkotherwm();
+	setup_config();
 	setup();
 	scan();
 	run();

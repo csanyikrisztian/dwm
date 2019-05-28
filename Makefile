@@ -3,7 +3,7 @@
 
 include config.mk
 
-SRC = drw.c dwm.c util.c
+SRC = parser.c drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
 all: options dwm
@@ -18,11 +18,7 @@ options:
 	@echo CC $<
 	${CC} -c ${CFLAGS} $<
 
-${OBJ}: config.h config.mk
-
-config.h:
-	@echo creating $@ from config.def.h
-	cp config.def.h $@
+${OBJ}: config.mk
 
 dwm: ${OBJ}
 	@echo CC -o $@
@@ -35,7 +31,7 @@ clean:
 dist: clean
 	@echo creating dist tarball
 	mkdir -p dwm-${VERSION}
-	cp -R LICENSE TODO BUGS Makefile README config.def.h config.mk \
+	cp -R LICENSE TODO BUGS Makefile README config.mk \
 		dwm.1 drw.h util.h ${SRC} dwm.png transient.c dwm-${VERSION}
 	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
 	gzip dwm-${VERSION}.tar
