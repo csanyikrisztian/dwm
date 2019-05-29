@@ -15,7 +15,12 @@
 void
 init_parameters (struct config * parms)
 {
-  strncpy (parms->selfgcolor, "#ff0000", MAXLEN);
+  strncpy (parms->selfgcolor, "#eeeeee", COLORMAXLEN);
+  strncpy (parms->selbgcolor, "#005577", COLORMAXLEN);
+  strncpy (parms->selbordercolor, "#005577", COLORMAXLEN);
+  strncpy (parms->normfgcolor, "#bbbbbb", COLORMAXLEN);
+  strncpy (parms->normbgcolor, "#222222", COLORMAXLEN);
+  strncpy (parms->normbordercolor, "#444444", COLORMAXLEN);
 }
 
 /*
@@ -96,7 +101,17 @@ parse_config (struct config * parms)
 
     /* Copy into correct entry in parameters struct */
     if (strcmp(name, "selfgcolor")==0)
-      strncpy (parms->selfgcolor, value, MAXLEN);
+      strncpy (parms->selfgcolor, value, COLORMAXLEN);
+    else if (strcmp(name, "selbgcolor")==0)
+      strncpy (parms->selbgcolor, value, COLORMAXLEN);
+    else if (strcmp(name, "selbordercolor")==0)
+      strncpy (parms->selbordercolor, value, COLORMAXLEN);
+    else if (strcmp(name, "normfgcolor")==0)
+      strncpy (parms->normfgcolor, value, COLORMAXLEN);
+    else if (strcmp(name, "normbgcolor")==0)
+      strncpy (parms->normbgcolor, value, COLORMAXLEN);
+    else if (strcmp(name, "normbordercolor")==0)
+      strncpy (parms->normbordercolor, value, COLORMAXLEN);
     else
       printf ("WARNING: %s/%s: Unknown name/value pair!\n", name, value);
   }

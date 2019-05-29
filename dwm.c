@@ -1595,13 +1595,12 @@ setup(void)
 	cursor[CurResize] = drw_cur_create(drw, XC_sizing);
 	cursor[CurMove] = drw_cur_create(drw, XC_fleur);
 	/* init appearance */
-	scheme[SchemeNorm].border = drw_clr_create(drw, normbordercolor);
-	scheme[SchemeNorm].bg = drw_clr_create(drw, normbgcolor);
-	scheme[SchemeNorm].fg = drw_clr_create(drw, normfgcolor);
-	scheme[SchemeSel].border = drw_clr_create(drw, selbordercolor);
-	scheme[SchemeSel].bg = drw_clr_create(drw, selbgcolor);
-	// scheme[SchemeSel].fg = drw_clr_create(drw, selfgcolor);
-	scheme[SchemeSel].fg = drw_clr_create(drw, configuration.selfgcolor );
+	scheme[SchemeNorm].border = drw_clr_create(drw, configuration.normbordercolor);
+	scheme[SchemeNorm].bg = drw_clr_create(drw, configuration.normbgcolor);
+	scheme[SchemeNorm].fg = drw_clr_create(drw, configuration.normfgcolor);
+	scheme[SchemeSel].border = drw_clr_create(drw, configuration.selbordercolor);
+	scheme[SchemeSel].bg = drw_clr_create(drw, configuration.selbgcolor);
+	scheme[SchemeSel].fg = drw_clr_create(drw, configuration.selfgcolor);
 	/* init bars */
 	updatebars();
 	updatestatus();
